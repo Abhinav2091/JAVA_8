@@ -5,3 +5,4 @@ ctrl+shift+/  //for commenting and uncommenting
 ctrl+shift+f10   //for running java class
 alt+enter  //import class or extract method
 alt+insert  //for getter/setter or to string etc
+ctrl+e   //recent open file list

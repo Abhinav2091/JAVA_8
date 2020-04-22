@@ -5,15 +5,25 @@ import com.luv2code.model.Employee;
 import com.luv2code.service.HelloWorld;
 import com.luv2code.service.StringLength;
 import com.luv2code.service.SumInterface;
+import com.luv2code.service.ThisVariableExample;
 
 import java.util.*;
 
 public class LambdaMainClass {
+    int x=888;
+
     public static void main(String ar[]) {
         hellomethod();
         sum();
 
         lengthOfString();
+
+        //this variable example
+        //local variable is final in Lambda
+        LambdaMainClass lambdaMainClass =new LambdaMainClass();
+        lambdaMainClass.anonymousInnerClass();
+
+
 
         //lambda expression which implements runnable interface
         runnableInterface();
@@ -84,7 +94,7 @@ public class LambdaMainClass {
         Collections.sort(l,(I1, I2)->(I1>I2)?-1:(I1<I2)?+1:0);
         System.out.println(l);
     }
-
+    //Also using as anonymous Inner Class
     private static void runnableInterface() {
         Runnable r = () -> {
             for (int i = 0; i < 5; i++) {
@@ -92,9 +102,17 @@ public class LambdaMainClass {
 
             }
         };
-
+//one way
         Thread t = new Thread(r);
         t.start();
+        //other way
+        Thread t1= new Thread(() -> {
+            for (int i = 0; i < 5; i++) {
+                System.out.println("Lambda Child Thread");
+
+            }
+        });
+        t1.start();
         for (int i = 0; i < 5; i++) {
             System.out.println("Main Thread");
 
@@ -119,7 +137,31 @@ public class LambdaMainClass {
     //lambda expression for simple print
     private static void hellomethod() {
         HelloWorld helloWorld = () ->
-            System.out.println("Hello World");
+                System.out.println("Hello World");
         helloWorld.helloMethod();
+    }
+
+    private void anonymousInnerClass()
+    {
+        //Local Variable of method
+        String t="test";
+        //with Anonymous Inner Class
+
+        ThisVariableExample thisVariableExample = new ThisVariableExample(){
+            int x=999;
+
+            public void m1(){
+                System.out.println("This variable with Anonymous Inner class: "+this.x);
+            };
+        };
+        thisVariableExample.m1();
+
+        //with Lambda Expression
+        ThisVariableExample lthisVariableExample = ()->{
+            int x=999;
+            //t="hello";//are effectively final
+            System.out.println("This variable with Lambda: "+this.x);
+        };
+        lthisVariableExample.m1();
     }
 }
