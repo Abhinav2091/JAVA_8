@@ -1,4 +1,4 @@
-package com.luv2code.lambda;
+package com.luv2code.java8Feature;
 
 
 import com.luv2code.model.Employee;
