@@ -2,7 +2,7 @@ package com.luv2code.service;
 
 import java.util.Comparator;
 
-public class MyComparator implements Comparator<Integer> {
+public abstract class MyComparator implements Comparator<Integer> {
 
     public int compare(Integer I1,Integer I2)
     {
