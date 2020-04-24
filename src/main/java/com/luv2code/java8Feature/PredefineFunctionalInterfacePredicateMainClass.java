@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class PredefineFunctionalInterfaceMainClass {
+public class PredefineFunctionalInterfacePredicateMainClass {
     public static void main(String ar[]) {
         //predicate Functional Interface
         Predicate<Integer> pI = I -> I > 10;
