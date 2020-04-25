@@ -9,4 +9,12 @@ public class Student {
         this.name=name;
         this.no=no;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", no=" + no +
+                '}';
+    }
 }
