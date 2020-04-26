@@ -5,10 +5,22 @@ import com.luv2code.model.Employee;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 public class PredefineFunctionalInterfacePredicateMainClass {
     public static void main(String ar[]) {
+        //predicate Functional Interface
+        PrediacteFunctionalInterface();
+
+        //BiPredicate Functionl Interface
+        BiPredicate<Integer, Integer> biPredicate = (a, b) -> (a + b) % 2 == 0;
+        System.out.println("Number is even::" + biPredicate.test(2, 4));
+
+
+    }
+
+    private static void PrediacteFunctionalInterface() {
         //predicate Functional Interface
         Predicate<Integer> pI = I -> I > 10;
         Predicate<String> pS = S -> S.length() > 10;
@@ -55,7 +67,5 @@ public class PredefineFunctionalInterfacePredicateMainClass {
         //static method of Predicate Interface
         Predicate<String> prEq = Predicate.isEqual("AJU");
         System.out.println("Static method of Predicate Interface::" + prEq.test("AJU"));
-
-
     }
 }

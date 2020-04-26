@@ -6,12 +6,33 @@ import com.sun.xml.internal.ws.util.StringUtils;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class PredefineFunctionalInterfaceFunctionMainClass {
 
     public static void main(String ar[]) {
+        //Predefine Functional Interface Function
+        FunctionInterfaceMethod();
+
+        //BiFunction Functional Interface
+        byFunctionMethod();
+
+
+    }
+
+    private static void byFunctionMethod() {
+        BiFunction<Integer, Integer, Integer> biFunction = (a, b) -> a + b;
+        System.out.println("Sum of two values:" + biFunction.apply(2, 3));
+
+        //create Student object by taking Name and number
+        BiFunction<String, Integer, Student> biStudent = (a, b) -> new Student(a, b);
+        BiFunction<String, Integer, Student> biStudents = (a, b) -> new Student(a, b);
+        System.out.println("Student Object" + biStudent.apply("Raju", 4).toString());
+    }
+
+    private static void FunctionInterfaceMethod() {
         //return length of String
         //String is Input Type  //Integer is Return Type
         Function<String, Integer> f = s -> s.length();
@@ -65,8 +86,6 @@ public class PredefineFunctionalInterfaceFunctionMainClass {
         //no much use
         Function<String, String> fId = Function.identity();
         System.out.println("Returning the Same Value:" + fId.apply("Test"));
-
-
     }
 
     private static List<Student> listAddingForStudentClass() {
