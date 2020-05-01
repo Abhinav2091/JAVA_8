@@ -6,9 +6,7 @@ import com.sun.xml.internal.ws.util.StringUtils;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
 
 public class PredefineFunctionalInterfaceFunctionMainClass {
 
@@ -19,7 +17,38 @@ public class PredefineFunctionalInterfaceFunctionMainClass {
         //BiFunction Functional Interface
         byFunctionMethod();
 
+        //UnaryOperator
+        unaryOperator();
 
+        //BinaryOperator
+        binaryOperator();
+
+
+    }
+
+    private static void binaryOperator() {
+        BinaryOperator<String> biString=(s1, s2)->s1.concat(s2);
+        System.out.println("BinaryOperator where all params are same:"+biString.apply("Abhinav","Sharma"));
+        //primitive Binary Operator
+        IntBinaryOperator bInt= (i, k)->i*k;
+        System.out.println("Int Binary Operater::"+bInt.applyAsInt(1,3));
+        LongBinaryOperator blong= (i, k)->i*k;
+        System.out.println("long Binary Operater::"+blong.applyAsLong(35L,2L));
+        DoubleBinaryOperator bDouble= (i, k)->(i+k)*Math.random();
+        System.out.println("Double Binary Operater::"+bDouble.applyAsDouble(2,1));
+    }
+
+    private static void unaryOperator() {
+        //if both input and output type is same
+        UnaryOperator<String> uString= s->String.valueOf(s.length());
+        System.out.println("Unaray Operator ::both are String::"+uString.apply("Abhinav"));
+        //primitive Unary Operator
+        IntUnaryOperator uInt= i->i*i;
+        System.out.println("Int Unary Operater::"+uInt.applyAsInt(1));
+        LongUnaryOperator ulong= i->i*i;
+        System.out.println("long Unary Operater::"+ulong.applyAsLong(35L));
+        DoubleUnaryOperator uDouble= i->i*Math.random();
+        System.out.println("Double Unary Operater::"+uDouble.applyAsDouble(2));
     }
 
     private static void byFunctionMethod() {

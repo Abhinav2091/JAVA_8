@@ -10,6 +10,10 @@ public class Student {
         this.no=no;
     }
 
+    public Student() {
+
+    }
+
     @Override
     public String toString() {
         return "Student{" +
